@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile &amp; Settings - Bharat Yatra Sahayak</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = { darkMode: "class", theme: { extend: {
+              "colors": {"on-tertiary-fixed-variant": "#454749","on-surface": "#1b1c1c","inverse-on-surface": "#f3f0ef","surface-container-low": "#f6f3f2","outline-variant": "#c6c5d4","on-primary": "#ffffff","on-tertiary-fixed": "#1a1c1d","on-error-container": "#93000a","on-tertiary": "#ffffff","secondary-fixed-dim": "#ffb77a","background": "#fcf9f8","secondary-container": "#fe9832","on-secondary-container": "#683700","tertiary": "#191b1d","on-primary-fixed": "#000767","error-container": "#ffdad6","error": "#ba1a1a","outline": "#767683","on-primary-container": "#8690ee","primary-fixed": "#e0e0ff","surface": "#fcf9f8","surface-bright": "#fcf9f8","surface-dim": "#dcd9d9","on-background": "#1b1c1c","primary": "#000666","secondary": "#8f4e00","secondary-fixed": "#ffdcc2","surface-variant": "#e5e2e1","primary-container": "#1a237e","on-error": "#ffffff","primary-fixed-dim": "#bdc2ff","surface-container-highest": "#e5e2e1","surface-container": "#f0eded","inverse-surface": "#303030","surface-tint": "#4c56af","tertiary-fixed": "#e2e2e4","surface-container-high": "#eae7e7","tertiary-container": "#2e3032","on-primary-fixed-variant": "#343d96","tertiary-fixed-dim": "#c6c6c8","on-tertiary-container": "#969799","on-secondary": "#ffffff","on-secondary-fixed-variant": "#6d3a00","on-surface-variant": "#454652","on-secondary-fixed": "#2e1500","surface-container-lowest": "#ffffff","inverse-primary": "#bdc2ff"},
+              "borderRadius": {"DEFAULT": "0.25rem","lg": "0.5rem","xl": "0.75rem","full": "9999px"},
+              "spacing": {"container-margin-mobile": "16px","stack-lg": "24px","stack-md": "12px","container-margin-desktop": "80px","base": "8px","stack-sm": "4px","gutter": "16px"},
+              "fontFamily": {"body-lg": ["Inter"],"headline-lg": ["Montserrat"],"label-md": ["Inter"],"body-md": ["Inter"],"headline-lg-mobile": ["Montserrat"],"caption": ["Inter"],"headline-md": ["Montserrat"],"headline-xl": ["Montserrat"]},
+              "fontSize": {"body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],"headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],"label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],"body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],"headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],"caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],"headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],"headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}]}
+      }}}
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased">
+<header class="w-full top-0 sticky bg-surface shadow-sm hidden md:flex border-b border-outline-variant z-50">
+<div class="flex justify-between items-center px-container-margin-desktop py-4 max-w-7xl mx-auto w-full">
+<div class="font-headline-md text-headline-md font-bold text-primary">Bharat Yatra Sahayak</div>
+<nav class="flex gap-6 items-center">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary" href="/">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary" href="/assistant">Assistant</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary" href="/emergency">Emergency</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary" href="/translate">Translate</a>
+<span class="font-body-md text-body-md text-primary border-b-2 border-secondary font-bold pb-1"><span class="material-symbols-outlined">account_circle</span></span>
+</nav>
+</div>
+</header>
+<main class="flex-grow w-full max-w-7xl mx-auto px-container-margin-mobile md:px-container-margin-desktop py-stack-lg md:py-12 mb-20 md:mb-0">
+
+<!-- PROFILE CREATE / EDIT FORM (shown when no profile exists yet, or when editing) -->
+<section id="profile-form-section" class="hidden max-w-xl mx-auto mb-12 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0_4px_20px_rgba(0,0,0,0.05)] p-6 md:p-8">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary mb-2">Create Your Profile</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg">Tell us a bit about yourself to personalize your trip and emergency info.</p>
+<form id="profile-form" class="flex flex-col gap-4">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Full Name *</label>
+<input id="profile-name-input" type="text" required class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" placeholder="e.g. Aarav Sharma"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Email</label>
+<input id="profile-email-input" type="email" class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" placeholder="e.g. aarav@example.com"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Emergency Contact Name</label>
+<input id="profile-emergency-name-input" type="text" class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" placeholder="e.g. Priya Sharma"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Relation</label>
+<input id="profile-emergency-relation-input" type="text" class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" placeholder="e.g. Spouse, Parent, Friend"/>
+</div>
+<p id="profile-form-error" class="text-error font-caption text-caption hidden"></p>
+<button type="submit" class="mt-2 px-6 py-3 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors active:scale-95">Save Profile</button>
+</form>
+</section>
+
+<!-- PROFILE VIEW (shown once a profile exists) -->
+<section id="profile-view-section" class="hidden flex flex-col md:flex-row items-center md:items-start gap-stack-lg mb-12">
+<div id="profile-avatar" class="w-32 h-32 rounded-full overflow-hidden border-4 border-surface shadow-[0_4px_20px_rgba(0,0,0,0.05)] flex-shrink-0 bg-primary flex items-center justify-center text-on-primary font-headline-lg">
+</div>
+<div class="text-center md:text-left flex flex-col justify-center h-full">
+<h1 id="profile-name" class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-stack-sm"></h1>
+<p id="profile-email" class="font-body-md text-body-md text-on-surface-variant mb-stack-md"></p>
+<button id="profile-edit-btn" class="px-6 py-3 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors active:scale-95 self-center md:self-start w-fit">Edit Profile</button>
+</div>
+</section>
+
+<div id="profile-details-wrapper" class="hidden">
+
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<div class="md:col-span-8 flex flex-col gap-12">
+<section>
+<div class="flex justify-between items-center mb-stack-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Saved Locations</h2>
+<button class="text-secondary font-label-md text-label-md hover:underline">View All</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] overflow-hidden border border-outline-variant flex flex-col cursor-pointer hover:shadow-md transition-shadow">
+<div class="h-32 bg-surface-variant relative">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4z0F7TGjWVMuDnPYOP05jPe_uxq52f_zeXI2ckdk28nhMTse7VOZAV_k_HRj_3dbw24Que_bMSo8IONYD5mIrrhhyiAgERexbJdirJicdQ7_3AFJzXHtQofm8Dh0nKkqVyLkoIbrf4GNc_5pBguyW71_qTLni33hLhqsgRXHU6aZBD3uENODPKAZCwBY_na8Jz8Xoaxg4k4llIZgEg6rAl7x4SaQMb-Kz7dW4S8QztmjKjd909T9YMQ"/>
+</div>
+<div class="p-4"><h3 class="font-label-md text-label-md text-on-surface mb-1">Taj Mahal</h3><p class="font-caption text-caption text-on-surface-variant">Agra, Uttar Pradesh</p></div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] overflow-hidden border border-outline-variant flex flex-col cursor-pointer hover:shadow-md transition-shadow">
+<div class="h-32 bg-surface-variant relative">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD465JDbSncwRYDi2xNq8oEbsLPK41IF79tJlAKcbTMpAxfPxhoIod6H2emjfzupH41bTYYaVZQIRYLoKAgSSOClOZxQ57ynGbPXDLDfyYKOeSRLP10I5r5rHiaRAJZnKQTL3hdp4BZkOz8BrkJJv-yCD1krzAiWyrULHCfbTMUQBbnoIFHlmoSenOjOmKhEQI1cjhvxIHmA9THZirpFWVFIoPW-xp_pHFwrscsdPiv8TFVHvQzCqQENA"/>
+</div>
+<div class="p-4"><h3 class="font-label-md text-label-md text-on-surface mb-1">Kerala Backwaters</h3><p class="font-caption text-caption text-on-surface-variant">Alleppey, Kerala</p></div>
+</div>
+</div>
+</section>
+<section>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-stack-md">Trip History</h2>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant p-4 flex flex-col gap-4">
+<div class="flex items-center justify-between pb-4 border-b border-surface-variant">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary"><span class="material-symbols-outlined">flight_takeoff</span></div>
+<div><h4 class="font-label-md text-label-md text-on-surface">Golden Triangle Tour</h4><p class="font-caption text-caption text-on-surface-variant">Oct 12 - Oct 18, 2025</p></div>
+</div>
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant rounded-full font-caption text-caption">Completed</span>
+</div>
+</div>
+</section>
+</div>
+<div class="md:col-span-4 flex flex-col gap-8">
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-outline-variant p-6">
+<div class="flex items-center gap-2 mb-4 text-primary"><span class="material-symbols-outlined">translate</span><h2 class="font-headline-md text-headline-md text-on-surface">Preferences</h2></div>
+<div class="mb-4">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">App Language</label>
+<select class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface cursor-pointer">
+<option>English</option><option>Hindi (हिंदी)</option><option>Tamil (தமிழ்)</option>
+</select>
+</div>
+</section>
+<section class="bg-error-container/20 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-error-container p-6">
+<div class="flex items-center gap-2 mb-4 text-error"><span class="material-symbols-outlined">emergency</span><h2 class="font-headline-md text-headline-md text-on-surface">Emergency Contacts</h2></div>
+<div class="flex flex-col gap-3 mb-6">
+<div id="profile-emergency-contact-card" class="flex justify-between items-center bg-surface rounded-lg p-3 border border-outline-variant">
+<div><p id="profile-emergency-contact-name" class="font-label-md text-label-md text-on-surface">Not set</p><p id="profile-emergency-contact-relation" class="font-caption text-caption text-on-surface-variant"></p></div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<nav class="fixed bottom-0 w-full z-50 md:hidden bg-surface shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex justify-around items-center h-16 pb-safe w-full">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1" href="/"><span class="material-symbols-outlined">home</span><span class="font-label-md text-[10px]">Home</span></a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1" href="/assistant"><span class="material-symbols-outlined">smart_toy</span><span class="font-label-md text-[10px]">AI Bot</span></a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1" href="/emergency"><span class="material-symbols-outlined">emergency</span><span class="font-label-md text-[10px]">SOS</span></a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1" href="/translate"><span class="material-symbols-outlined">translate</span><span class="font-label-md text-[10px]">Translate</span></a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1" href="/profile"><span class="material-symbols-outlined">person</span><span class="font-label-md text-[10px]">Profile</span></a>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bharat Yatra Sahayak - Live Translator</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = { darkMode: "class", theme: { extend: {
+              "colors": {"on-tertiary-fixed-variant": "#454749","on-surface": "#1b1c1c","inverse-on-surface": "#f3f0ef","surface-container-low": "#f6f3f2","outline-variant": "#c6c5d4","on-primary": "#ffffff","on-tertiary-fixed": "#1a1c1d","on-error-container": "#93000a","on-tertiary": "#ffffff","secondary-fixed-dim": "#ffb77a","background": "#fcf9f8","secondary-container": "#fe9832","on-secondary-container": "#683700","tertiary": "#191b1d","on-primary-fixed": "#000767","error-container": "#ffdad6","error": "#ba1a1a","outline": "#767683","on-primary-container": "#8690ee","primary-fixed": "#e0e0ff","surface": "#fcf9f8","surface-bright": "#fcf9f8","surface-dim": "#dcd9d9","on-background": "#1b1c1c","primary": "#000666","secondary": "#8f4e00","secondary-fixed": "#ffdcc2","surface-variant": "#e5e2e1","primary-container": "#1a237e","on-error": "#ffffff","primary-fixed-dim": "#bdc2ff","surface-container-highest": "#e5e2e1","surface-container": "#f0eded","inverse-surface": "#303030","surface-tint": "#4c56af","tertiary-fixed": "#e2e2e4","surface-container-high": "#eae7e7","tertiary-container": "#2e3032","on-primary-fixed-variant": "#343d96","tertiary-fixed-dim": "#c6c6c8","on-tertiary-container": "#969799","on-secondary": "#ffffff","on-secondary-fixed-variant": "#6d3a00","on-surface-variant": "#454652","on-secondary-fixed": "#2e1500","surface-container-lowest": "#ffffff","inverse-primary": "#bdc2ff"},
+              "borderRadius": {"DEFAULT": "0.25rem","lg": "0.5rem","xl": "0.75rem","full": "9999px"},
+              "spacing": {"container-margin-mobile": "16px","stack-lg": "24px","stack-md": "12px","container-margin-desktop": "80px","base": "8px","stack-sm": "4px","gutter": "16px"},
+              "fontFamily": {"body-lg": ["Inter"],"headline-lg": ["Montserrat"],"label-md": ["Inter"],"body-md": ["Inter"],"headline-lg-mobile": ["Montserrat"],"caption": ["Inter"],"headline-md": ["Montserrat"],"headline-xl": ["Montserrat"]},
+              "fontSize": {"body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],"headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],"label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],"body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],"headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],"caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],"headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],"headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}]}
+      }}}
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased">
+<header class="bg-surface w-full top-0 sticky border-b border-outline-variant shadow-sm z-50">
+<div class="flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop py-4 max-w-7xl mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary">Bharat Yatra Sahayak</div>
+<nav class="hidden md:flex gap-stack-lg">
+<a class="text-on-surface-variant hover:text-primary font-body-md text-body-md" href="/">Home</a>
+<a class="text-on-surface-variant hover:text-primary font-body-md text-body-md" href="/assistant">Assistant</a>
+<a class="text-on-surface-variant hover:text-primary font-body-md text-body-md" href="/emergency">Emergency</a>
+<a class="text-primary border-b-2 border-secondary font-bold pb-1 font-body-md text-body-md" href="/translate">Translate</a>
+</nav>
+<a href="/profile" class="flex items-center gap-4 text-primary"><span class="material-symbols-outlined">account_circle</span></a>
+</div>
+</header>
+<main class="flex-grow w-full max-w-7xl mx-auto px-container-margin-mobile md:px-container-margin-desktop py-stack-lg flex flex-col gap-stack-lg pb-24 md:pb-stack-lg">
+<div class="flex flex-col gap-stack-sm md:gap-stack-md text-center md:text-left mb-4">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary">Live Translator</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Instantly translate speech and text to communicate effortlessly during your travels.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-[0_4px_20px_rgba(0,0,0,0.05)] flex flex-col gap-4">
+<div class="flex justify-between items-center border-b border-outline-variant pb-4">
+<span class="text-primary font-label-md text-label-md">English (Input)</span>
+</div>
+<textarea id="translate-input" class="w-full h-32 md:h-48 resize-none bg-transparent border-none focus:ring-0 p-0 font-body-lg text-body-lg text-on-surface placeholder-outline" placeholder="Type here... e.g. I need help"></textarea>
+<div class="flex justify-between items-center pt-4">
+<button class="bg-primary-container text-on-primary-container rounded-full p-4 shadow-md hover:bg-primary hover:text-on-primary transition-all active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">mic</span>
+</button>
+<div class="flex gap-2">
+<button id="translate-clear-btn" class="text-on-surface-variant hover:text-primary p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+<button id="translate-btn" class="bg-primary text-on-primary font-label-md text-label-md px-6 py-2 rounded-full hover:bg-primary-container hover:text-on-primary-container transition-colors">Translate</button>
+</div>
+</div>
+</div>
+<div class="bg-primary-fixed rounded-xl p-6 border border-primary-fixed-dim shadow-[0_4px_20px_rgba(0,0,0,0.05)] flex flex-col gap-4 relative overflow-hidden">
+<div class="flex justify-between items-center border-b border-primary-fixed-dim pb-4">
+<select id="translate-target" class="bg-transparent border-none text-primary font-label-md text-label-md focus:ring-0 p-0 cursor-pointer">
+<option value="hindi">Hindi (Output)</option>
+<option value="tamil">Tamil</option>
+</select>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<p id="translate-output" class="font-body-lg text-body-lg text-on-primary-fixed min-h-[8rem] md:min-h-[12rem]">Translation will appear here.</p>
+<div class="flex justify-end gap-2 pt-4">
+<button class="text-primary hover:bg-surface-variant p-2 rounded-full transition-colors" title="Copy" id="translate-copy-btn"><span class="material-symbols-outlined">content_copy</span></button>
+<button class="bg-primary text-on-primary rounded-full p-3 shadow-sm hover:bg-primary-container transition-all active:scale-95 flex items-center justify-center" title="Play Audio"><span class="material-symbols-outlined">volume_up</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 flex flex-col gap-stack-md">
+<h2 class="font-headline-md text-headline-md text-primary">Common Tourist Phrases</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-stack-md">
+<div class="quick-phrase bg-surface-container-lowest rounded-xl p-5 border border-outline-variant hover:shadow-[0_4px_20px_rgba(0,0,0,0.05)] transition-shadow cursor-pointer flex flex-col gap-3 group" data-phrase="How much?">
+<div class="flex items-center gap-2 text-secondary"><span class="material-symbols-outlined">storefront</span><h3 class="font-label-md text-label-md uppercase tracking-wider">Shopping</h3></div>
+<p class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">"How much does this cost?"</p>
+</div>
+<div class="quick-phrase bg-surface-container-lowest rounded-xl p-5 border border-outline-variant hover:shadow-[0_4px_20px_rgba(0,0,0,0.05)] transition-shadow cursor-pointer flex flex-col gap-3 group" data-phrase="Where is the nearest train station?">
+<div class="flex items-center gap-2 text-secondary"><span class="material-symbols-outlined">map</span><h3 class="font-label-md text-label-md uppercase tracking-wider">Directions</h3></div>
+<p class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">"Where is the nearest train station?"</p>
+</div>
+<div class="quick-phrase bg-error-container rounded-xl p-5 border border-error hover:shadow-[0_4px_20px_rgba(186,26,26,0.15)] transition-shadow cursor-pointer flex flex-col gap-3 group" data-phrase="I need help">
+<div class="flex items-center gap-2 text-error"><span class="material-symbols-outlined">medical_services</span><h3 class="font-label-md text-label-md uppercase tracking-wider">Emergency</h3></div>
+<p class="font-body-md text-body-md text-on-error-container group-hover:text-error transition-colors">"I need help."</p>
+</div>
+</div>
+</div>
+</main>
+<nav class="bg-surface shadow-[0_-4px_20px_rgba(0,0,0,0.05)] fixed bottom-0 w-full z-50 md:hidden pb-safe">
+<div class="flex justify-around items-center h-16 w-full">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 rounded-full" href="/"><span class="material-symbols-outlined">home</span><span class="font-label-md text-[10px]">Home</span></a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 rounded-full" href="/assistant"><span class="material-symbols-outlined">smart_toy</span><span class="font-label-md text-[10px]">AI Bot</span></a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 rounded-full" href="/emergency"><span class="material-symbols-outlined">emergency</span><span class="font-label-md text-[10px]">SOS</span></a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1" href="/translate"><span class="material-symbols-outlined">translate</span><span class="font-label-md text-[10px]">Translate</span></a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 rounded-full" href="/profile"><span class="material-symbols-outlined">person</span><span class="font-label-md text-[10px]">Profile</span></a>
+</div>
+</nav>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body></html>

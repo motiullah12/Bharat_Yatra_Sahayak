@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Emergency SOS - Bharat Yatra Sahayak</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = { darkMode: "class", theme: { extend: {
+            "colors": {"on-tertiary-fixed-variant": "#454749","on-surface": "#1b1c1c","inverse-on-surface": "#f3f0ef","surface-container-low": "#f6f3f2","outline-variant": "#c6c5d4","on-primary": "#ffffff","on-tertiary-fixed": "#1a1c1d","on-error-container": "#93000a","on-tertiary": "#ffffff","secondary-fixed-dim": "#ffb77a","background": "#fcf9f8","secondary-container": "#fe9832","on-secondary-container": "#683700","tertiary": "#191b1d","on-primary-fixed": "#000767","error-container": "#ffdad6","error": "#ba1a1a","outline": "#767683","on-primary-container": "#8690ee","primary-fixed": "#e0e0ff","surface": "#fcf9f8","surface-bright": "#fcf9f8","surface-dim": "#dcd9d9","on-background": "#1b1c1c","primary": "#000666","secondary": "#8f4e00","secondary-fixed": "#ffdcc2","surface-variant": "#e5e2e1","primary-container": "#1a237e","on-error": "#ffffff","primary-fixed-dim": "#bdc2ff","surface-container-highest": "#e5e2e1","surface-container": "#f0eded","inverse-surface": "#303030","surface-tint": "#4c56af","tertiary-fixed": "#e2e2e4","surface-container-high": "#eae7e7","tertiary-container": "#2e3032","on-primary-fixed-variant": "#343d96","tertiary-fixed-dim": "#c6c6c8","on-tertiary-container": "#969799","on-secondary": "#ffffff","on-secondary-fixed-variant": "#6d3a00","on-surface-variant": "#454652","on-secondary-fixed": "#2e1500","surface-container-lowest": "#ffffff","inverse-primary": "#bdc2ff"},
+            "borderRadius": {"DEFAULT": "0.25rem","lg": "0.5rem","xl": "0.75rem","full": "9999px"},
+            "spacing": {"container-margin-mobile": "16px","stack-lg": "24px","stack-md": "12px","container-margin-desktop": "80px","base": "8px","stack-sm": "4px","gutter": "16px"},
+            "fontFamily": {"body-lg": ["Inter"],"headline-lg": ["Montserrat"],"label-md": ["Inter"],"body-md": ["Inter"],"headline-lg-mobile": ["Montserrat"],"caption": ["Inter"],"headline-md": ["Montserrat"],"headline-xl": ["Montserrat"]},
+            "fontSize": {"body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],"headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],"label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],"body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],"headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],"caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],"headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],"headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }]}
+        }}}
+    </script>
+<style>
+    .sos-pulse { animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite; }
+    @keyframes pulse-ring {
+        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(186, 26, 26, 0.7); }
+        70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(186, 26, 26, 0); }
+        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(186, 26, 26, 0); }
+    }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<nav class="bg-surface w-full top-0 sticky border-b border-outline-variant shadow-sm z-40 hidden md:block">
+<div class="flex justify-between items-center px-container-margin-desktop py-4 max-w-7xl mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary">Bharat Yatra Sahayak</div>
+<ul class="flex space-x-8 font-body-md text-body-md">
+<li><a class="text-on-surface-variant hover:text-primary" href="/">Home</a></li>
+<li><a class="text-on-surface-variant hover:text-primary" href="/assistant">Assistant</a></li>
+<li><a class="text-primary border-b-2 border-secondary font-bold pb-1" href="/emergency">Emergency</a></li>
+<li><a class="text-on-surface-variant hover:text-primary" href="/translate">Translate</a></li>
+</ul>
+<a href="/profile" class="text-primary"><span class="material-symbols-outlined">account_circle</span></a>
+</div>
+</nav>
+<main class="flex-grow flex flex-col items-center px-container-margin-mobile md:px-container-margin-desktop py-stack-lg max-w-7xl mx-auto w-full mb-16 md:mb-0 pb-24 md:pb-8">
+<header class="text-center mb-stack-lg w-full">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-error mb-stack-sm">Emergency Assistance</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Tap the SOS button to instantly alert emergency services and your contacts.</p>
+</header>
+<section class="flex flex-col items-center justify-center mb-stack-lg w-full">
+<button id="sos-btn" aria-label="Activate SOS" class="sos-pulse bg-error hover:bg-[#93000a] text-on-error rounded-full w-48 h-48 md:w-64 md:h-64 flex flex-col items-center justify-center shadow-[0_12px_32px_rgba(186,26,26,0.3)] transition-all duration-300 active:scale-90">
+<span class="material-symbols-outlined text-6xl md:text-8xl mb-2" style="font-variation-settings: 'FILL' 1;">emergency</span>
+<span class="font-headline-md text-headline-md font-bold tracking-widest uppercase">SOS</span>
+</button>
+<p class="mt-stack-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Tap to activate</p>
+</section>
+<section id="sos-result" class="w-full max-w-3xl mb-stack-lg hidden bg-surface rounded-xl border border-error shadow-sm p-stack-lg">
+<h2 class="font-headline-md text-headline-md text-error mb-stack-sm flex items-center gap-2"><span class="material-symbols-outlined">check_circle</span> Emergency Info Fetched</h2>
+<p class="font-body-md text-body-md text-on-surface" id="sos-police"></p>
+<p class="font-body-md text-body-md text-on-surface" id="sos-hospital"></p>
+<p class="font-body-md text-body-md text-on-surface" id="sos-contacts"></p>
+</section>
+<section class="w-full max-w-3xl mb-stack-lg bg-surface rounded-xl border border-outline-variant shadow-sm overflow-hidden flex flex-col">
+<div class="px-4 py-3 bg-surface-container flex items-center border-b border-outline-variant">
+<span class="material-symbols-outlined text-primary mr-2">my_location</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Current Location</span>
+<span class="font-caption text-caption text-on-surface-variant" id="location-text">Detecting your location...</span>
+</div>
+</div>
+<div class="h-48 md:h-64 w-full bg-surface-variant relative" id="location-map-container">
+<p class="absolute inset-0 flex items-center justify-center text-on-surface-variant font-body-md">Waiting for location permission...</p>
+</div>
+</section>
+<section class="w-full max-w-3xl grid grid-cols-2 md:grid-cols-3 gap-stack-md mb-stack-lg">
+<button id="btn-police" class="quick-emergency flex flex-col items-center justify-center p-stack-md bg-surface rounded-xl border border-outline-variant shadow-sm hover:bg-surface-variant active:scale-95 transition-all group">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center mb-stack-sm group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary transition-colors">local_police</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface text-center">Nearest<br/>Police Station</span>
+</button>
+<button id="btn-hospital" class="quick-emergency flex flex-col items-center justify-center p-stack-md bg-surface rounded-xl border border-outline-variant shadow-sm hover:bg-surface-variant active:scale-95 transition-all group">
+<div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center mb-stack-sm group-hover:bg-error transition-colors">
+<span class="material-symbols-outlined text-error group-hover:text-on-error transition-colors">local_hospital</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface text-center">Nearest<br/>Hospital</span>
+</button>
+<button id="btn-contacts" class="quick-emergency flex flex-col items-center justify-center p-stack-md bg-surface rounded-xl border border-outline-variant shadow-sm hover:bg-surface-variant active:scale-95 transition-all group col-span-2 md:col-span-1">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center mb-stack-sm group-hover:bg-secondary transition-colors">
+<span class="material-symbols-outlined text-secondary group-hover:text-on-secondary transition-colors">contacts</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface text-center">Emergency<br/>Contacts</span>
+</button>
+</section>
+<section class="w-full max-w-3xl bg-surface-container-low rounded-xl border border-outline-variant shadow-sm p-stack-lg">
+<div class="flex items-center mb-stack-md">
+<span class="material-symbols-outlined text-primary mr-2">translate</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Emergency Phrases</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">Quickly communicate your need for help in local languages.</p>
+<div class="space-y-stack-md">
+<div class="bg-surface rounded-lg p-stack-md border border-outline-variant flex flex-col md:flex-row justify-between md:items-center gap-stack-sm">
+<div>
+<span class="font-label-md text-label-md text-on-surface block mb-1">"I need help"</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-surface-variant text-on-surface-variant rounded-full font-caption text-caption">Hindi: मुझे मदद चाहिए</span>
+<span class="px-2 py-1 bg-surface-variant text-on-surface-variant rounded-full font-caption text-caption">Tamil: எனக்கு உதவி தேவை</span>
+</div>
+</div>
+<button class="play-phrase flex items-center justify-center px-4 py-2 bg-primary text-on-primary rounded-full font-label-md text-label-md hover:bg-primary-container active:scale-95 transition-all mt-2 md:mt-0 w-full md:w-auto">
+<span class="material-symbols-outlined mr-2 text-sm">volume_up</span> Play Audio
+</button>
+</div>
+<div class="bg-surface rounded-lg p-stack-md border border-outline-variant flex flex-col md:flex-row justify-between md:items-center gap-stack-sm">
+<div>
+<span class="font-label-md text-label-md text-on-surface block mb-1">"Call the police"</span>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-surface-variant text-on-surface-variant rounded-full font-caption text-caption">Hindi: पुलिस को बुलाओ</span>
+</div>
+</div>
+<button class="play-phrase flex items-center justify-center px-4 py-2 bg-primary text-on-primary rounded-full font-label-md text-label-md hover:bg-primary-container active:scale-95 transition-all mt-2 md:mt-0 w-full md:w-auto">
+<span class="material-symbols-outlined mr-2 text-sm">volume_up</span> Play Audio
+</button>
+</div>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 w-full z-50 md:hidden bg-surface shadow-[0_-4px_20px_rgba(0,0,0,0.05)] h-16 pb-safe flex justify-around items-center">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1" href="/"><span class="material-symbols-outlined">home</span><span class="font-label-md text-[10px]">Home</span></a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1" href="/assistant"><span class="material-symbols-outlined">smart_toy</span><span class="font-label-md text-[10px]">AI Bot</span></a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1" href="/emergency"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">emergency</span><span class="font-label-md text-[10px] font-bold">SOS</span></a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1" href="/translate"><span class="material-symbols-outlined">translate</span><span class="font-label-md text-[10px]">Translate</span></a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1" href="/profile"><span class="material-symbols-outlined">person</span><span class="font-label-md text-[10px]">Profile</span></a>
+</nav>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body></html>
